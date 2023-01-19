@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{744ac685-ba44-48bb-b4b7-d7657fdaa776}</ProjectGuid>
+    <RootNamespace>MARS</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\LUA\include;$(SolutionDir)Dependencies\Assimp\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)MARS\MARS;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\Assimp\lib\Release-x64;$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies\LUA;$(SolutionDir)Dependencies\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sdl2.lib;glew32.lib;assimp-vc143-mt.lib;liblua54.a;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\Assimp\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)MARS\MARS;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="MARS\Scene\DirectionalLight.cpp" />
+    <ClCompile Include="MARS\Scene\Cube.cpp" />
+    <ClCompile Include="MARS\Scripting\LuaVM.cpp" />
+    <ClCompile Include="MARS\Scene\Camera.cpp" />
+    <ClCompile Include="MARS\AssetManager\AssetManagerUI.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_demo.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_draw.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_impl_sdl.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_impl_sdlrenderer.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_tables.cpp" />
+    <ClCompile Include="MARS\External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Assets\GL_MeshGroup.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MARS\Application.cpp" />
+    <ClCompile Include="MARS\AssetManager\AssetManager.cpp" />
+    <ClCompile Include="MARS\Events.cpp" />
+    <ClCompile Include="MARS\External\stb\stb_image.cpp" />
+    <ClCompile Include="MARS\Global.cpp" />
+    <ClCompile Include="MARS\Math\Color.cpp" />
+    <ClCompile Include="MARS\Math\Transform.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Assets\GL_Mesh.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Assets\GL_Texture.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Buffers\GL_IndexBuffer.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Buffers\GL_UniformBuffer.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Buffers\GL_VertexBuffer.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Buffers\GL_VertexLayout.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\GL_Error.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\GL_Renderer.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\GL_Shader.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Scene\GL_Camera.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Scene\GL_Model.cpp" />
+    <ClCompile Include="MARS\Render\OpenGL\Tests.cpp" />
+    <ClCompile Include="MARS\Scene\SceneUI.cpp" />
+    <ClCompile Include="MARS\Utility\FileUtility.cpp" />
+    <ClCompile Include="MARS\Window.cpp" />
+    <ClCompile Include="MARS\Scene\Scene.cpp" />
+    <ClCompile Include="MARS\Scene\Model.cpp" />
+    <ClCompile Include="MARS\Scene\PointLight.cpp" />
+    <ClCompile Include="MARS\Scene\Spotlight.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MARS\Scene\DirectionalLight.h" />
+    <ClInclude Include="MARS\Scene\Cube.h" />
+    <ClInclude Include="MARS\Scripting\LuaVM.h" />
+    <ClInclude Include="MARS\Scene\Camera.h" />
+    <ClInclude Include="MARS\External\imgui\imconfig.h" />
+    <ClInclude Include="MARS\External\imgui\imgui.h" />
+    <ClInclude Include="MARS\External\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="MARS\External\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="MARS\External\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="MARS\External\imgui\imgui_impl_sdl.h" />
+    <ClInclude Include="MARS\External\imgui\imgui_impl_sdlrenderer.h" />
+    <ClInclude Include="MARS\External\imgui\imgui_internal.h" />
+    <ClInclude Include="MARS\External\imgui\imstb_rectpack.h" />
+    <ClInclude Include="MARS\External\imgui\imstb_textedit.h" />
+    <ClInclude Include="MARS\External\imgui\imstb_truetype.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Assets\GL_MeshGroup.h" />
+    <ClInclude Include="MARS\Application.h" />
+    <ClInclude Include="MARS\AssetManager\AssetManager.h" />
+    <ClInclude Include="MARS\Core.h" />
+    <ClInclude Include="MARS\Events.h" />
+    <ClInclude Include="MARS\External\stb\stb_image.h" />
+    <ClInclude Include="MARS\Global.h" />
+    <ClInclude Include="MARS\Math\Color.h" />
+    <ClInclude Include="MARS\Math\Rotator.h" />
+    <ClInclude Include="MARS\Math\Transform.h" />
+    <ClInclude Include="MARS\Math\Vector.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Assets\GL_Mesh.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Assets\GL_Texture.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Buffers\GL_IndexBuffer.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Buffers\GL_UniformBuffer.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Buffers\GL_VertexBuffer.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Buffers\GL_VertexLayout.h" />
+    <ClInclude Include="MARS\Render\OpenGL\GL_Error.h" />
+    <ClInclude Include="MARS\Render\OpenGL\GL_Renderer.h" />
+    <ClInclude Include="MARS\Render\OpenGL\GL_Shader.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Scene\GL_Camera.h" />
+    <ClInclude Include="MARS\Render\OpenGL\Scene\GL_Model.h" />
+    <ClInclude Include="MARS\Render\Renderer.h" />
+    <ClInclude Include="MARS\Utility\FileUtility.h" />
+    <ClInclude Include="MARS\Window.h" />
+    <ClInclude Include="MARS\Scene\Scene.h" />
+    <ClInclude Include="MARS\Scene\Model.h" />
+    <ClInclude Include="MARS\Scene\PointLight.h" />
+    <ClInclude Include="MARS\Scene\Spotlight.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MARS\Resources\Shaders\OpenGL\CubeTextured.glsl" />
+    <None Include="MARS\Resources\Shaders\OpenGL\SceneModel.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
